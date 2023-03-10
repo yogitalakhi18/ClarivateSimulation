@@ -17,6 +17,7 @@ namespace DemoClarivate.Pages
         public static IWebDriver Driver;
         public static WebDriverWait webDriverWait;
         private static string screenshotFolderPath = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "Screenshots");
+        protected IWebElement btnAcceptAllCookies => Driver.FindElement(By.XPath("//div[text()='Accept all'] | //button[text()='Accept all']"));
 
         public BasePage()
         {

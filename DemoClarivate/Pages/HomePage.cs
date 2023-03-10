@@ -10,6 +10,12 @@ namespace DemoClarivate.Pages
 	{
         private IWebElement searchBar => Driver.FindElement(By.CssSelector("input[name='q']"));
 
+        public HomePage()
+        {
+            if (btnAcceptAllCookies.Displayed)
+                btnAcceptAllCookies.Click();
+        }
+
         public T SearchItem<T>(string itemToSearch) where T : new()
         {
             WaitUntilDisplayed(searchBar);

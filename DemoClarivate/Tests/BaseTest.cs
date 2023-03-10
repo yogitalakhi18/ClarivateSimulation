@@ -12,14 +12,21 @@ namespace DemoClarivate.Tests
 	{
         public static IWebDriver Driver;
         public static TestContext _testContext { get; set; }
-        private static string siteUrl = "https://www.google.com";
+
         private static string folderPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
-        public static string? filePath = @$"{folderPath}/FileToWrite{currentTimeStamp}.txt";
+        public static string filePath = @$"{folderPath}/FileToWrite{currentTimeStamp}.txt";
+
+        [AssemblyInitialize]
+        public static void AssemblyInitialize(TestContext testContext)
+        {
+            RunSettingsHelper.ReadRunSettings(testContext);
+            _testContext = testContext;
+        }
 
         public BaseTest()
         {
             Driver = GetDriver();
-            Driver.Navigate().GoToUrl(siteUrl);
+            Driver.Navigate().GoToUrl(RunSettingsHelper.SiteUrl);
         }
 
         [TestCleanup]

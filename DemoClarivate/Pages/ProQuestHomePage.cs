@@ -11,6 +11,12 @@ namespace DemoClarivate.Pages
         private IWebElement txtSearchBar => Driver.FindElement(By.CssSelector("textarea#searchTerm"));
         private IWebElement iconSearch => Driver.FindElement(By.Id("expandedSearch"));
 
+        public ProQuestHomePage()
+        {
+             if (btnAcceptAllCookies.Displayed)
+                btnAcceptAllCookies.Click();
+        }
+
         public T SearchItem<T>(string searchKeyword) where T : new()
         {
             txtSearchBar.SendKeys(searchKeyword);

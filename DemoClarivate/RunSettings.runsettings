@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<RunSettings>
+
+  <!-- Parameters used by tests at runtime -->  
+  <TestRunParameters>
+    <Parameter name="SiteUrl" value="https://www.google.com/"/>
+    <Parameter name="SearchItemOnGoogle" value="ProQuest"/>
+    <Parameter name="SearchItemOnProQuest" value="QA"/>
+  </TestRunParameters>  
+ 
+</RunSettings>
